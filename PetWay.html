@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetWay | El camino del bienestar animal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= BRAND ================= */
+:root{
+  --primary:#5FA8A0;
+  --accent:#FF8A65;
+  --bg:#F2EFEA;
+  --dark:#2E2E2E;
+  --white:#fff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Lato,sans-serif;color:var(--dark);background:var(--white)}
+
+/* ================= ANIMATIONS ================= */
+.reveal{opacity:0;transform:translateY(40px);transition:.8s}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+/* ================= NAV ================= */
+.nav{
+  position:sticky;
+  top:0;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  padding:1rem 2rem;
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
+  z-index:10;
+}
+.nav__logo{font-family:Montserrat;font-weight:800;color:var(--primary);font-size:1.4rem}
+.nav__menu a{
+  margin-left:1.2rem;
+  text-decoration:none;
+  font-weight:700;
+  color:var(--dark)
+}
+.nav__menu a:hover{color:var(--primary)}
+
+/* ================= HERO ================= */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  padding:6rem 2rem;
+  background:linear-gradient(135deg,var(--bg),#e7f4f2);
+  align-items:center;
+}
+.hero h1{
+  font-family:Montserrat;
+  font-size:3.2rem;
+  line-height:1.1
+}
+.hero span{color:var(--primary)}
+.hero p{margin:1.2rem 0;font-size:1.1rem;color:#555}
+
+.btn{
+  display:inline-block;
+  padding:1rem 2rem;
+  border-radius:40px;
+  font-weight:700;
+  text-decoration:none;
+  margin-right:.5rem;
+}
+.btn--primary{background:var(--primary);color:white}
+.btn--ghost{border:2px solid var(--primary);color:var(--primary)}
+.hero img{width:100%;max-width:420px;animation:float 4s ease-in-out infinite}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+
+/* ================= BENEFITS ================= */
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  padding:4rem 2rem;
+}
+.benefit{
+  background:var(--bg);
+  padding:2rem;
+  border-radius:25px;
+  text-align:center;
+}
+
+/* ================= SERVICES ================= */
+.services{
+  padding:5rem 2rem;
+  background:white;
+  text-align:center;
+}
+.services h2{font-family:Montserrat;font-size:2.4rem;margin-bottom:3rem}
+.services__grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+}
+.service{
+  background:var(--bg);
+  padding:2rem;
+  border-radius:30px;
+  transition:.3s;
+}
+.service:hover{transform:translateY(-12px)}
+.service img{width:80px;margin-bottom:1rem}
+
+/* ================= GALLERY ================= */
+.gallery{
+  padding:5rem 2rem;
+  background:linear-gradient(180deg,var(--bg),white);
+  text-align:center;
+}
+.gallery h2{font-family:Montserrat;font-size:2.3rem;margin-bottom:2rem}
+.gallery__grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+}
+.gallery__grid img{
+  width:100%;
+  border-radius:20px;
+  transition:.4s;
+}
+.gallery__grid img:hover{
+  transform:scale(1.05);
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+/* ================= STEPS ================= */
+.steps{
+  padding:4rem 2rem;
+  text-align:center;
+}
+.steps__list{
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+  margin-top:2rem;
+}
+.step span{
+  display:inline-block;
+  width:55px;
+  height:55px;
+  background:var(--primary);
+  color:white;
+  border-radius:50%;
+  line-height:55px;
+  font-weight:800;
+  margin-bottom:.5rem;
+}
+
+/* ================= CTA ================= */
+.cta{
+  padding:4rem 2rem;
+  background:var(--primary);
+  color:white;
+  text-align:center;
+}
+.cta .btn{background:var(--accent);color:white}
+
+/* ================= FOOTER ================= */
+.footer{
+  padding:1.5rem;
+  background:#1f1f1f;
+  text-align:center;
+  color:#aaa;
+}
+
+/* ================= WHATSAPP FLOAT ================= */
+.whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:1.8rem;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  z-index:20;
+}
+.whatsapp:hover{transform:scale(1.1)}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .hero,.benefits,.services__grid,.gallery__grid{grid-template-columns:1fr}
+  .steps__list{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav__logo">PetWay 🐾</div>
+  <nav class="nav__menu">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero reveal" id="inicio">
+  <div>
+    <h1>El camino del<br><span>bienestar animal</span></h1>
+    <p>Creamos rutinas felices, vínculos reales y tranquilidad para vos.</p>
+    <a href="#contacto" class="btn btn--primary">Contactar</a>
+    <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
+  </div>
+  <img src="img/hero-dog.webp" alt="Perro feliz">
+</section>
+
+<section class="benefits">
+  <div class="benefit reveal">🐾 Atención personalizada</div>
+  <div class="benefit reveal">📍 Seguimiento diario</div>
+  <div class="benefit reveal">💚 Educación positiva</div>
+</section>
+
+<section class="services" id="servicios">
+  <h2 class="reveal">Servicios PetWay</h2>
+  <div class="services__grid">
+    <div class="service reveal"><img src="img/walk.webp"><h3>Paseos</h3></div>
+    <div class="service reveal"><img src="img/sitting.webp"><h3>Pet Sitting</h3></div>
+    <div class="service reveal"><img src="img/training.webp"><h3>Adiestramiento</h3></div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <h2 class="reveal">Momentos PetWay</h2>
+  <div class="gallery__grid">
+    <img src="img/g1.webp">
+    <img src="img/g2.webp">
+    <img src="img/g3.webp">
+    <img src="img/g4.webp">
+  </div>
+</section>
+
+<section class="steps reveal">
+  <h2>Cómo trabajamos</h2>
+  <div class="steps__list">
+    <div class="step"><span>1</span><p>Conocemos a tu mascota</p></div>
+    <div class="step"><span>2</span><p>Diseñamos su rutina</p></div>
+    <div class="step"><span>3</span><p>Acompañamos su bienestar</p></div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <h2>Tu mascota merece este cuidado</h2>
+  <p>Escribinos y empezá hoy 🐾</p>
+  <a href="https://wa.me/5493815177268" target="_blank" class="btn">WhatsApp</a>
+</section>
+
+<footer class="footer">
+  © 2024 PetWay · Bienestar animal con amor real
+</footer>
+
+<a href="https://wa.me/5493815177268" class="whatsapp" target="_blank">💬</a>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+  reveals.forEach(el=>{
+    const top=el.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      el.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

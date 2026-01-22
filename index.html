@@ -1,0 +1,2266 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetWay - El camino del bienestar animal</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      box-sizing: border-box;
+      font-family: 'Lato', sans-serif;
+      color: #2E2E2E;
+      line-height: 1.6;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-lato { font-family: 'Lato', sans-serif; }
+    
+    /* Layout */
+    .app-wrapper {
+      height: 100%;
+      width: 100%;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #F2EFEA 0%, #ffffff 50%, #F2EFEA 100%);
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .nav-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: #2E2E2E;
+    }
+    
+    .nav-logo-accent {
+      color: #5FA8A0;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: #5FA8A0;
+    }
+    
+    .nav-cta {
+      background: #FF8A65;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition:  0.3s ease;
+    }
+    
+    .nav-cta:hover {
+      background: #ff7043;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    
+    .hero-text {
+      text-align: left;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(95, 168, 160, 0.1);
+      color: #5FA8A0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      color: #2E2E2E;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+      font-size: 24px;
+      color: #666;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    
+    .hero-description {
+      color: #777;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .btn-primary {
+      background: #FF8A65;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 138, 101, 0.4);
+    }
+    
+    .btn-secondary {
+      border: 2px solid #5FA8A0;
+      color: #5FA8A0;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .btn-secondary:hover {
+      background: #5FA8A0;
+      color: white;
+    }
+    
+    /* Hero Illustration */
+    .hero-illustration {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    /* Paw Prints */
+    .paw-print {
+      position: absolute;
+      opacity: 0.2;
+      animation: pawPrint 4s ease-in-out infinite;
+    }
+    
+    .paw-print-1 {
+      top: 130px;
+      left: 40px;
+    }
+    
+    .paw-print-2 {
+      top: 190px;
+      right: 80px;
+    }
+    
+    .paw-print-3 {
+      bottom: 130px;
+      left: 25%;
+    }
+    
+    @keyframes pawPrint {
+      0% { opacity: 0; transform: scale(0.8) rotate(-15deg); }
+      50% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+      100% { opacity: 0; transform: scale(0.8) rotate(15deg); }
+    }
+    
+    .paw-delay-1 { animation-delay: 0.5s; }
+    .paw-delay-2 { animation-delay: 1s; }
+    .paw-delay-3 { animation-delay: 1.5s; }
+    
+    /* Services Section */
+    .section {
+      padding: 96px 0;
+    }
+    
+    .section-white {
+      background: white;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    
+    .section-label {
+      color: #FF8A65;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      color: #2E2E2E;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .section-description {
+      color: #777;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .service-card {
+      background: #F2EFEA;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(95, 168, 160, 0.2);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    
+    .service-icon-primary {
+      background: #5FA8A0;
+    }
+    
+    .service-icon-accent {
+      background: #FF8A65;
+    }
+    
+    .service-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #2E2E2E;
+      margin-bottom: 12px;
+    }
+    
+    .service-description {
+      color: #777;
+      line-height: 1.6;
+    }
+    
+    .service-link {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    
+    .service-link-primary {
+      color: #5FA8A0;
+    }
+    
+    .service-link-accent {
+      color: #FF8A65;
+    }
+    
+    /* About Section */
+    .about-section {
+      background: linear-gradient(135deg, rgba(95, 168, 160, 0.1) 0%, #F2EFEA 100%);
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .about-text {
+      color: #666;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    
+    .about-text-secondary {
+      color: #777;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-number {
+      font-size: 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    
+    .stat-number-primary {
+      color: #5FA8A0;
+    }
+    
+    .stat-number-accent {
+      color: #FF8A65;
+    }
+    
+    .stat-label {
+      color: #777;
+      font-size: 14px;
+    }
+    
+    .about-visual {
+      position: relative;
+    }
+    
+    .about-bg {
+      position: absolute;
+      inset: 0;
+      background: #5FA8A0;
+      border-radius: 24px;
+      transform: rotate(3deg);
+    }
+    
+    .about-card {
+      position: relative;
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    .feature-box {
+      background: #F2EFEA;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .feature-emoji {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .feature-text {
+      color: #666;
+      font-weight: 500;
+    }
+    
+    /* Values Section */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .value-card {
+      text-align: center;
+      padding: 24px;
+      border-radius: 16px;
+      transition: background 0.3s ease;
+    }
+    
+    .value-card:hover {
+      background: #F2EFEA;
+    }
+    
+    .value-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 24px;
+    }
+    
+    .value-icon-primary {
+      background: rgba(95, 168, 160, 0.1);
+    }
+    
+    .value-icon-accent {
+      background: rgba(255, 138, 101, 0.1);
+    }
+    
+    .value-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #2E2E2E;
+      margin-bottom: 8px;
+    }
+    
+    .value-description {
+      color: #777;
+      font-size: 14px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: #2E2E2E;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+    }
+    
+    .cta-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 96px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      color: white;
+      margin-bottom: 24px;
+    }
+    
+    .cta-text {
+      color: #ccc;
+      font-size: 18px;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-whatsapp:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+    
+    .btn-instagram {
+      border: 2px solid white;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-instagram:hover {
+      background: white;
+      color: #2E2E2E;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2E2E2E;
+      border-top: 1px solid #444;
+      padding: 32px 0;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .footer-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .footer-text {
+      color: #999;
+      font-size: 14px;
+    }
+    
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .social-link {
+      color: #999;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-link:hover {
+      color: #5FA8A0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-text {
+        text-align: center;
+      }
+      
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      .hero-title {
+        font-size: 48px;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .section-title {
+        font-size: 36px;
+      }
+      
+      .cta-title {
+        font-size: 36px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div id="app" class="app-wrapper"><!-- Navigation -->
+   <nav>
+    <div class="nav-content">
+     <div class="nav-logo">
+      <svg width="40" height="40" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="24" fill="#5FA8A0" fill-opacity="0.15" /> <path d="M20 18C20 16.3431 21.3431 15 23 15C24.6569 15 26 16.3431 26 18C26 19.6569 24.6569 21 23 21C21.3431 21 20 19.6569 20 18Z" fill="#5FA8A0" /> <path d="M28 18C28 16.3431 29.3431 15 31 15C32.6569 15 34 16.3431 34 18C34 19.6569 32.6569 21 31 21C29.3431 21 28 19.6569 28 18Z" fill="#5FA8A0" /> <path d="M16 24C16 22.3431 17.3431 21 19 21C20.6569 21 22 22.3431 22 24C22 25.6569 20.6569 27 19 27C17.3431 27 16 25.6569 16 24Z" fill="#5FA8A0" /> <path d="M32 24C32 22.3431 33.3431 21 35 21C36.6569 21 38 22.3431 38 24C38 25.6569 36.6569 27 35 27C33.3431 27 32 25.6569 32 24Z" fill="#5FA8A0" /> <path d="M27 35C27 32.2386 24.7614 28 22 28H32C29.2386 28 27 32.2386 27 35C27 37.7614 29.2386 40 32 40H22C24.7614 40 27 37.7614 27 35Z" fill="#5FA8A0" /> <path d="M27 35C30 35 32 32 32 28" stroke="#FF8A65" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" />
+      </svg><span id="nav-logo" class="nav-logo-text">Pet<span class="nav-logo-accent">Way</span></span>
+     </div>
+     <div class="nav-links"><a href="#servicios" class="nav-link">Servicios</a> <a href="#nosotros" class="nav-link">Nosotros</a> <a href="#valores" class="nav-link">Valores</a> <a href="#contacto" class="nav-cta">Contacto</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="hero-section">
+    <div class="paw-print paw-print-1 paw-delay-1">
+     <svg width="48" height="48" viewbox="0 0 24 24" fill="#5FA8A0"><path d="M12 10.5c1.5 0 3 1.5 3 3.5 0 2.5-1.5 4-3 4s-3-1.5-3-4c0-2 1.5-3.5 3-3.5zM6 8c1.1 0 2 1.1 2 2.5S7.1 13 6 13s-2-1.1-2-2.5S4.9 8 6 8zM18 8c1.1 0 2 1.1 2 2.5s-.9 2.5-2 2.5-2-1.1-2-2.5.9-2.5 2-2.5zM9 4c1.1 0 2 1.1 2 2.5S10.1 9 9 9 7 7.9 7 6.5 7.9 4 9 4zM15 4c1.1 0 2 1.1 2 2.5S16.1 9 15 9s-2-1.1-2-2.5.9-2.5 2-2.5z" />
+     </svg>
+    </div>
+    <div class="paw-print paw-print-2 paw-delay-2">
+     <svg width="64" height="64" viewbox="0 0 24 24" fill="#FF8A65"><path d="M12 10.5c1.5 0 3 1.5 3 3.5 0 2.5-1.5 4-3 4s-3-1.5-3-4c0-2 1.5-3.5 3-3.5zM6 8c1.1 0 2 1.1 2 2.5S7.1 13 6 13s-2-1.1-2-2.5S4.9 8 6 8zM18 8c1.1 0 2 1.1 2 2.5s-.9 2.5-2 2.5-2-1.1-2-2.5.9-2.5 2-2.5zM9 4c1.1 0 2 1.1 2 2.5S10.1 9 9 9 7 7.9 7 6.5 7.9 4 9 4zM15 4c1.1 0 2 1.1 2 2.5S16.1 9 15 9s-2-1.1-2-2.5.9-2.5 2-2.5z" />
+     </svg>
+    </div>
+    <div class="paw-print paw-print-3 paw-delay-3">
+     <svg width="80" height="80" viewbox="0 0 24 24" fill="#5FA8A0"><path d="M12 10.5c1.5 0 3 1.5 3 3.5 0 2.5-1.5 4-3 4s-3-1.5-3-4c0-2 1.5-3.5 3-3.5zM6 8c1.1 0 2 1.1 2 2.5S7.1 13 6 13s-2-1.1-2-2.5S4.9 8 6 8zM18 8c1.1 0 2 1.1 2 2.5s-.9 2.5-2 2.5-2-1.1-2-2.5.9-2.5 2-2.5zM9 4c1.1 0 2 1.1 2 2.5S10.1 9 9 9 7 7.9 7 6.5 7.9 4 9 4zM15 4c1.1 0 2 1.1 2 2.5S16.1 9 15 9s-2-1.1-2-2.5.9-2.5 2-2.5z" />
+     </svg>
+    </div>
+    <div class="hero-content">
+     <div class="hero-text">
+      <div class="hero-badge"><span>🐾</span> <span>Paseos · Pet Sitting · Adiestramiento</span>
+      </div>
+      <h1 id="hero-title" class="hero-title">Pet<span style="color: #5FA8A0;">Way</span></h1>
+      <p id="hero-subtitle" class="hero-subtitle">El camino del bienestar animal</p>
+      <p class="hero-description">Acompañamos a tu mascota en cada paso, con cuidado, respeto y amor. Porque el bienestar de tu compañero es nuestra prioridad.</p>
+      <div class="hero-buttons"><a href="#contacto" id="hero-cta" class="btn-primary"> <span>Contáctanos</span>
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a> <a href="#servicios" class="btn-secondary"> Ver Servicios </a>
+      </div>
+     </div>
+     <div class="hero-illustration">
+      <div class="float-animation">
+       <svg width="400" height="400" viewbox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="200" cy="200" r="180" fill="#5FA8A0" fill-opacity="0.1" /> <circle cx="200" cy="200" r="140" fill="#5FA8A0" fill-opacity="0.1" /> <ellipse cx="200" cy="280" rx="80" ry="25" fill="#2E2E2E" fill-opacity="0.1" /> <ellipse cx="200" cy="220" rx="70" ry="55" fill="#F2EFEA" /> <ellipse cx="200" cy="220" rx="70" ry="55" stroke="#5FA8A0" stroke-width="3" /> <circle cx="200" cy="130" r="60" fill="#F2EFEA" /> <circle cx="200" cy="130" r="60" stroke="#5FA8A0" stroke-width="3" /> <ellipse cx="145" cy="100" rx="25" ry="40" fill="#5FA8A0" transform="rotate(-20 145 100)" /> <ellipse cx="255" cy="100" rx="25" ry="40" fill="#5FA8A0" transform="rotate(20 255 100)" /> <circle cx="175" cy="120" r="12" fill="#2E2E2E" /> <circle cx="225" cy="120" r="12" fill="#2E2E2E" /> <circle cx="178" cy="117" r="4" fill="white" /> <circle cx="228" cy="117" r="4" fill="white" /> <ellipse cx="200" cy="145" rx="12" ry="10" fill="#2E2E2E" /> <path d="M185 160 Q200 175 215 160" stroke="#2E2E2E" stroke-width="3" stroke-linecap="round" fill="none" /> <ellipse cx="200" cy="170" rx="8" ry="12" fill="#FF8A65" /> <rect x="160" y="180" width="80" height="12" rx="6" fill="#FF8A65" /> <circle cx="200" cy="192" r="8" fill="#FFD54F" /> <path d="M270 200 Q320 180 290 130" stroke="#5FA8A0" stroke-width="8" stroke-linecap="round" fill="none" /> <rect x="155" y="255" width="20" height="40" rx="10" fill="#F2EFEA" stroke="#5FA8A0" stroke-width="2" /> <rect x="225" y="255" width="20" height="40" rx="10" fill="#F2EFEA" stroke="#5FA8A0" stroke-width="2" /> <path d="M80 320 Q120 290 160 310 Q200 330 240 300 Q280 270 320 290" stroke="#FF8A65" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round" fill="none" /> <g transform="translate(90, 315) scale(0.4)">
+         <circle cx="10" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="25" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="0" cy="15" r="6" fill="#5FA8A0" />
+         <circle cx="35" cy="15" r="6" fill="#5FA8A0" />
+         <ellipse cx="17" cy="30" rx="12" ry="15" fill="#5FA8A0" />
+        </g> <g transform="translate(170, 330) scale(0.4)">
+         <circle cx="10" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="25" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="0" cy="15" r="6" fill="#5FA8A0" />
+         <circle cx="35" cy="15" r="6" fill="#5FA8A0" />
+         <ellipse cx="17" cy="30" rx="12" ry="15" fill="#5FA8A0" />
+        </g> <g transform="translate(260, 300) scale(0.4)">
+         <circle cx="10" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="25" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="0" cy="15" r="6" fill="#5FA8A0" />
+         <circle cx="35" cy="15" r="6" fill="#5FA8A0" />
+         <ellipse cx="17" cy="30" rx="12" ry="15" fill="#5FA8A0" />
+        </g>
+       </svg>
+      </div>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section id="servicios" class="section section-white">
+    <div class="section-header"><span class="section-label">Lo que hacemos</span>
+     <h2 id="services-title" class="section-title">Nuestros Servicios</h2>
+     <p class="section-description">Servicios profesionales diseñados para el bienestar integral de tu mascota</p>
+    </div>
+    <div class="services-grid">
+     <div class="service-card">
+      <div class="service-icon service-icon-primary">
+       <svg width="40" height="40" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5 0-.83.67-1.5 1.5-1.5.83 0 1.5.67 1.5 1.5 0 .83-.67 1.5-1.5 1.5zm-5 0C8.67 10 8 9.33 8 8.5 8 7.67 8.67 7 9.5 7c.83 0 1.5.67 1.5 1.5 0 .83-.67 1.5-1.5 1.5zm7.5 3c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 2.76 2.24 5 5 5s5-2.24 5-5z" /> <path stroke-linecap="round" d="M4 19l3-3M20 19l-3-3" />
+       </svg>
+      </div>
+      <h3 class="service-title">Paseos Caninos</h3>
+      <p class="service-description">Paseos diarios personalizados para mantener a tu mascota activa, feliz y saludable. Rutas seguras y diversión garantizada.</p>
+      <div class="service-link service-link-primary"><span>Saber más</span>
+       <svg width="16" height="16" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg>
+      </div>
+     </div>
+     <div class="service-card">
+      <div class="service-icon service-icon-accent">
+       <svg width="40" height="40" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" />
+       </svg>
+      </div>
+      <h3 class="service-title">Pet Sitting</h3>
+      <p class="service-description">Cuidado en casa mientras estás fuera. Tu mascota estará segura y consentida con atención personalizada 24/7.</p>
+      <div class="service-link service-link-accent"><span>Saber más</span>
+       <svg width="16" height="16" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg>
+      </div>
+     </div>
+     <div class="service-card">
+      <div class="service-icon service-icon-primary">
+       <svg width="40" height="40" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+       </svg>
+      </div>
+      <h3 class="service-title">Adiestramiento</h3>
+      <p class="service-description">Educación positiva basada en refuerzo. Mejoramos la conducta de tu mascota con técnicas respetuosas y efectivas.</p>
+      <div class="service-link service-link-primary"><span>Saber más</span>
+       <svg width="16" height="16" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="nosotros" class="section about-section">
+    <div class="about-grid">
+     <div><span class="section-label">Conócenos</span>
+      <h2 id="about-title" class="section-title">Sobre PetWay</h2>
+      <p class="about-text">PetWay nace del amor por los animales y la convicción de que cada mascota merece un cuidado excepcional. Somos un equipo apasionado que entiende que tu compañero peludo es parte de tu familia.</p>
+      <p class="about-text-secondary">Nuestra misión es simple: proporcionar servicios de la más alta calidad, combinando profesionalismo con un trato cercano y amoroso. Porque creemos que el bienestar animal es un camino que recorremos juntos.</p>
+      <div class="stats-grid">
+       <div class="stat-card">
+        <div class="stat-number stat-number-primary">
+         500+
+        </div>
+        <div class="stat-label">
+         Mascotas felices
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-number stat-number-accent">
+         5★
+        </div>
+        <div class="stat-label">
+         Calificación promedio
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="about-visual">
+      <div class="about-bg"></div>
+      <div class="about-card">
+       <div class="features-grid">
+        <div class="feature-box"><span class="feature-emoji">🐕</span> <span class="feature-text">Perros de todas las razas</span>
+        </div>
+        <div class="feature-box"><span class="feature-emoji">🐈</span> <span class="feature-text">Gatos y felinos</span>
+        </div>
+        <div class="feature-box"><span class="feature-emoji">❤️</span> <span class="feature-text">Atención personalizada</span>
+        </div>
+        <div class="feature-box"><span class="feature-emoji">🏆</span> <span class="feature-text">Profesionales certificados</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Values Section -->
+   <section id="valores" class="section section-white">
+    <div class="section-header"><span class="section-label">Nuestros principios</span>
+     <h2 class="section-title">Valores que nos guían</h2>
+    </div>
+    <div class="values-grid">
+     <div class="value-card">
+      <div class="value-icon value-icon-primary"><span>💚</span>
+      </div>
+      <h3 class="value-title">Bienestar Animal</h3>
+      <p class="value-description">Priorizamos la salud y felicidad de cada mascota</p>
+     </div>
+     <div class="value-card">
+      <div class="value-icon value-icon-accent"><span>🤝</span>
+      </div>
+      <h3 class="value-title">Responsabilidad</h3>
+      <p class="value-description">Compromiso total con cada familia</p>
+     </div>
+     <div class="value-card">
+      <div class="value-icon value-icon-primary"><span>🙏</span>
+      </div>
+      <h3 class="value-title">Respeto</h3>
+      <p class="value-description">Trato digno hacia todos los animales</p>
+     </div>
+     <div class="value-card">
+      <div class="value-icon value-icon-accent"><span>📚</span>
+      </div>
+      <h3 class="value-title">Educación Positiva</h3>
+      <p class="value-description">Métodos basados en el refuerzo</p>
+     </div>
+     <div class="value-card">
+      <div class="value-icon value-icon-primary"><span>⭐</span>
+      </div>
+      <h3 class="value-title">Compromiso</h3>
+      <p class="value-description">Dedicación en cada servicio</p>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section id="contacto" class="cta-section">
+    <div class="cta-pattern">
+     <svg width="100%" height="100%" viewbox="0 0 100 100" preserveaspectratio="none"><pattern id="pawPattern" patternunits="userSpaceOnUse" width="20" height="20">
+       <circle cx="5" cy="5" r="2" fill="white" />
+       <circle cx="10" cy="3" r="2" fill="white" />
+       <circle cx="3" cy="10" r="2" fill="white" />
+       <circle cx="12" cy="10" r="2" fill="white" />
+       <ellipse cx="7" cy="14" rx="3" ry="4" fill="white" />
+      </pattern> <rect width="100%" height="100%" fill="url(#pawPattern)" />
+     </svg>
+    </div>
+    <div class="cta-content">
+     <h2 class="cta-title">¿Listo para comenzar el camino?</h2>
+     <p class="cta-text">Contáctanos hoy y descubre cómo podemos ayudar a tu mascota a vivir más feliz y saludable.</p>
+     <div class="cta-buttons"><a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+       <svg width="24" height="24" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+       </svg><span>WhatsApp</span> </a> <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+       <svg width="24" height="24" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+       </svg><span>Instagram</span> </a>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer>
+    <div class="footer-content">
+     <div class="footer-logo">
+      <svg width="32" height="32" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 18C20 16.3431 21.3431 15 23 15C24.6569 15 26 16.3431 26 18C26 19.6569 24.6569 21 23 21C21.3431 21 20 19.6569 20 18Z" fill="#5FA8A0" /> <path d="M28 18C28 16.3431 29.3431 15 31 15C32.6569 15 34 16.3431 34 18C34 19.6569 32.6569 21 31 21C29.3431 21 28 19.6569 28 18Z" fill="#5FA8A0" /> <path d="M16 24C16 22.3431 17.3431 21 19 21C20.6569 21 22 22.3431 22 24C22 25.6569 20.6569 27 19 27C17.3431 27 16 25.6569 16 24Z" fill="#5FA8A0" /> <path d="M32 24C32 22.3431 33.3431 21 35 21C36.6569 21 38 22.3431 38 24C38 25.6569 36.6569 27 35 27C33.3431 27 32 25.6569 32 24Z" fill="#5FA8A0" /> <ellipse cx="27" cy="32" rx="8" ry="6" fill="#5FA8A0" />
+      </svg><span class="footer-logo-text">PetWay</span>
+     </div>
+     <p class="footer-text">© 2024 PetWay. El camino del bienestar animal. Todos los derechos reservados.</p>
+     <div class="footer-social"><a href="#" class="social-link">
+       <svg width="20" height="20" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
+       </svg></a> <a href="#" class="social-link">
+       <svg width="20" height="20" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+       </svg></a>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_title: 'PetWay',
+      hero_subtitle: 'El camino del bienestar animal',
+      services_title: 'Nuestros Servicios',
+      about_title: 'Sobre PetWay',
+      cta_button: 'Contáctanos',
+      background_color: '#F2EFEA',
+      primary_color: '#5FA8A0',
+      text_color: '#2E2E2E',
+      accent_color: '#FF8A65',
+      surface_color: '#FFFFFF'
+    };
+
+    async function onConfigChange(newConfig) {
+      const config = { ...defaultConfig, ...newConfig };
+      
+      // Update hero title
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle) {
+        const title = config.hero_title || defaultConfig.hero_title;
+        if (title.toLowerCase().includes('pet') && title.toLowerCase().includes('way')) {
+          heroTitle.innerHTML = title.replace(/(way)/i, '<span style="color: ' + (config.primary_color || defaultConfig.primary_color) + ';">$1</span>');
+        } else {
+          heroTitle.textContent = title;
+        }
+      }
+      
+      // Update nav logo
+      const navLogo = document.getElementById('nav-logo');
+      if (navLogo) {
+        const title = config.hero_title || defaultConfig.hero_title;
+        if (title.toLowerCase().includes('pet') && title.toLowerCase().includes('way')) {
+          navLogo.innerHTML = 'Pet<span class="nav-logo-accent">Way</span>';
+          document.querySelectorAll('.nav-logo-accent').forEach(el => {
+            el.style.color = config.primary_color || defaultConfig.primary_color;
+          });
+        } else {
+          navLogo.textContent = title;
+        }
+      }
+      
+      // Update hero subtitle
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) {
+        heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      }
+      
+      // Update services title
+      const servicesTitle = document.getElementById('services-title');
+      if (servicesTitle) {
+        servicesTitle.textContent = config.services_title || defaultConfig.services_title;
+      }
+      
+      // Update about title
+      const aboutTitle = document.getElementById('about-title');
+      if (aboutTitle) {
+        aboutTitle.textContent = config.about_title || defaultConfig.about_title;
+      }
+      
+      // Update CTA button
+      const heroCta = document.getElementById('hero-cta');
+      if (heroCta) {
+        const span = heroCta.querySelector('span');
+        if (span) {
+          span.textContent = config.cta_button || defaultConfig.cta_button;
+        }
+      }
+      
+      // Apply background color
+      const appWrapper = document.querySelector('.app-wrapper');
+      if (appWrapper) {
+        appWrapper.style.background = 'linear-gradient(135deg, ' + (config.background_color || defaultConfig.background_color) + ' 0%, #ffffff 50%, ' + (config.background_color || defaultConfig.background_color) + ' 100%)';
+      }
+      
+      // Apply surface color to cards and backgrounds
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      document.querySelectorAll('.service-card, .about-card, .stat-card').forEach(el => {
+        if (el.classList.contains('service-card')) {
+          el.style.background = config.background_color || defaultConfig.background_color;
+        } else {
+          el.style.background = surfaceColor;
+        }
+      });
+      
+      // Apply text color
+      const textColor = config.text_color || defaultConfig.text_color;
+      document.body.style.color = textColor;
+      document.querySelectorAll('.section-title, .service-title, .value-title, .hero-title').forEach(el => {
+        el.style.color = textColor;
+      });
+      
+      // Apply primary color
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      document.querySelectorAll('.service-icon-primary, .value-icon-primary').forEach(el => {
+        el.style.background = primaryColor;
+      });
+      document.querySelectorAll('.btn-secondary').forEach(el => {
+        el.style.borderColor = primaryColor;
+        el.style.color = primaryColor;
+      });
+      document.querySelectorAll('.nav-link').forEach(el => {
+        el.addEventListener('mouseenter', function() {
+          this.style.color = primaryColor;
+        });
+        el.addEventListener('mouseleave', function() {
+          this.style.color = '#666';
+        });
+      });
+      
+      // Apply accent color
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      document.querySelectorAll('.btn-primary, .nav-cta').forEach(el => {
+        el.style.background = accentColor;
+      });
+      document.querySelectorAll('.service-icon-accent, .value-icon-accent').forEach(el => {
+        el.style.background = accentColor;
+      });
+      document.querySelectorAll('.section-label').forEach(el => {
+        el.style.color = accentColor;
+      });
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+        ['services_title', config.services_title || defaultConfig.services_title],
+        ['about_title', config.about_title || defaultConfig.about_title],
+        ['cta_button', config.cta_button || defaultConfig.cta_button]
+      ]);
+    }
+
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetWay - El camino del bienestar animal</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      box-sizing: border-box;
+      font-family: 'Lato', sans-serif;
+      color: #2E2E2E;
+      line-height: 1.6;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-lato { font-family: 'Lato', sans-serif; }
+    
+    /* Layout */
+    .app-wrapper {
+      height: 100%;
+      width: 100%;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #F2EFEA 0%, #ffffff 50%, #F2EFEA 100%);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .nav-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: #2E2E2E;
+    }
+    
+    .nav-logo-accent {
+      color: #5FA8A0;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: #5FA8A0;
+    }
+    
+    .nav-cta {
+      background: #FF8A65;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    
+    .nav-cta:hover {
+      background: #ff7043;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    
+    .hero-text {
+      text-align: left;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(95, 168, 160, 0.1);
+      color: #5FA8A0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      color: #2E2E2E;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+      font-size: 24px;
+      color: #666;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    
+    .hero-description {
+      color: #777;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .btn-primary {
+      background: #FF8A65;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 138, 101, 0.4);
+    }
+    
+    .btn-secondary {
+      border: 2px solid #5FA8A0;
+      color: #5FA8A0;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .btn-secondary:hover {
+      background: #5FA8A0;
+      color: white;
+    }
+    
+    /* Hero Illustration */
+    .hero-illustration {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    /* Paw Prints */
+    .paw-print {
+      position: absolute;
+      opacity: 0.2;
+      animation: pawPrint 4s ease-in-out infinite;
+    }
+    
+    @keyframes pawPrint {
+      0% { opacity: 0; transform: scale(0.8) rotate(-15deg); }
+      50% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+      100% { opacity: 0; transform: scale(0.8) rotate(15deg); }
+    }
+    
+    .paw-delay-1 { animation-delay: 0.5s; }
+    .paw-delay-2 { animation-delay: 1s; }
+    .paw-delay-3 { animation-delay: 1.5s; }
+    
+    /* Services Section */
+    .section {
+      padding: 96px 0;
+    }
+    
+    .section-white {
+      background: white;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    
+    .section-label {
+      color: #FF8A65;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      color: #2E2E2E;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .section-description {
+      color: #777;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .service-card {
+      background: #F2EFEA;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(95, 168, 160, 0.2);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    
+    .service-icon-primary {
+      background: #5FA8A0;
+    }
+    
+    .service-icon-accent {
+      background: #FF8A65;
+    }
+    
+    .service-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #2E2E2E;
+      margin-bottom: 12px;
+    }
+    
+    .service-description {
+      color: #777;
+      line-height: 1.6;
+    }
+    
+    .service-link {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    
+    .service-link-primary {
+      color: #5FA8A0;
+    }
+    
+    .service-link-accent {
+      color: #FF8A65;
+    }
+    
+    /* About Section */
+    .about-section {
+      background: linear-gradient(135deg, rgba(95, 168, 160, 0.1) 0%, #F2EFEA 100%);
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .about-text {
+      color: #666;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    
+    .about-text-secondary {
+      color: #777;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-number {
+      font-size: 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    
+    .stat-number-primary {
+      color: #5FA8A0;
+    }
+    
+    .stat-number-accent {
+      color: #FF8A65;
+    }
+    
+    .stat-label {
+      color: #777;
+      font-size: 14px;
+    }
+    
+    .about-visual {
+      position: relative;
+    }
+    
+    .about-bg {
+      position: absolute;
+      inset: 0;
+      background: #5FA8A0;
+      border-radius: 24px;
+      transform: rotate(3deg);
+    }
+    
+    .about-card {
+      position: relative;
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    .feature-box {
+      background: #F2EFEA;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .feature-emoji {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .feature-text {
+      color: #666;
+      font-weight: 500;
+    }
+    
+    /* Values Section */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .value-card {
+      text-align: center;
+      padding: 24px;
+      border-radius: 16px;
+      transition: background 0.3s ease;
+    }
+    
+    .value-card:hover {
+      background: #F2EFEA;
+    }
+    
+    .value-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 24px;
+    }
+    
+    .value-icon-primary {
+      background: rgba(95, 168, 160, 0.1);
+    }
+    
+    .value-icon-accent {
+      background: rgba(255, 138, 101, 0.1);
+    }
+    
+    .value-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #2E2E2E;
+      margin-bottom: 8px;
+    }
+    
+    .value-description {
+      color: #777;
+      font-size: 14px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: #2E2E2E;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+    }
+    
+    .cta-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 96px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      color: white;
+      margin-bottom: 24px;
+    }
+    
+    .cta-text {
+      color: #ccc;
+      font-size: 18px;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-whatsapp:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+    
+    .btn-instagram {
+      border: 2px solid white;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-instagram:hover {
+      background: white;
+      color: #2E2E2E;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2E2E2E;
+      border-top: 1px solid #444;
+      padding: 32px 0;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .footer-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .footer-text {
+      color: #999;
+      font-size: 14px;
+    }
+    
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .social-link {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    
+    .social-link:hover {
+      color: #5FA8A0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-text {
+        text-align: center;
+      }
+      
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      .hero-title {
+        font-size: 48px;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .section-title {
+        font-size: 36px;
+      }
+      
+      .cta-title {
+        font-size: 36px;
+      }
+    }
+  </style>
+  <div id="app" class="app-wrapper"><!-- Navigation -->
+   <nav>
+    <div class="nav-content">
+     <div class="nav-logo"><!-- Logo SVG -->
+      <svg class="w-10 h-10" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="24" fill="#5FA8A0" fill-opacity="0.15" /> <path d="M20 18C20 16.3431 21.3431 15 23 15C24.6569 15 26 16.3431 26 18C26 19.6569 24.6569 21 23 21C21.3431 21 20 19.6569 20 18Z" fill="#5FA8A0" /> <path d="M28 18C28 16.3431 29.3431 15 31 15C32.6569 15 34 16.3431 34 18C34 19.6569 32.6569 21 31 21C29.3431 21 28 19.6569 28 18Z" fill="#5FA8A0" /> <path d="M16 24C16 22.3431 17.3431 21 19 21C20.6569 21 22 22.3431 22 24C22 25.6569 20.6569 27 19 27C17.3431 27 16 25.6569 16 24Z" fill="#5FA8A0" /> <path d="M32 24C32 22.3431 33.3431 21 35 21C36.6569 21 38 22.3431 38 24C38 25.6569 36.6569 27 35 27C33.3431 27 32 25.6569 32 24Z" fill="#5FA8A0" /> <path d="M27 35C27 32.2386 24.7614 28 22 28H32C29.2386 28 27 32.2386 27 35C27 37.7614 29.2386 40 32 40H22C24.7614 40 27 37.7614 27 35Z" fill="#5FA8A0" /> <path d="M27 35C30 35 32 32 32 28" stroke="#FF8A65" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" />
+      </svg><span id="nav-logo" class="font-montserrat font-bold text-2xl text-gray-800">Pet<span class="text-[#5FA8A0]">Way</span></span>
+     </div>
+     <div class="hidden md:flex items-center gap-8"><a href="#servicios" class="text-gray-600 hover:text-[#5FA8A0] transition-colors font-medium">Servicios</a> <a href="#nosotros" class="text-gray-600 hover:text-[#5FA8A0] transition-colors font-medium">Nosotros</a> <a href="#valores" class="text-gray-600 hover:text-[#5FA8A0] transition-colors font-medium">Valores</a> <a href="#contacto" class="bg-[#FF8A65] text-white px-5 py-2.5 rounded-full font-semibold hover:bg-[#ff7043] transition-colors">Contacto</a>
+     </div><button id="mobile-menu-btn" class="md:hidden text-gray-600">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="min-h-screen flex items-center relative overflow-hidden pt-20"><!-- Decorative paw prints -->
+    <div class="absolute top-32 left-10 opacity-20 paw-animation">
+     <svg class="w-12 h-12 text-[#5FA8A0]" viewbox="0 0 24 24" fill="currentColor"><path d="M12 10.5c1.5 0 3 1.5 3 3.5 0 2.5-1.5 4-3 4s-3-1.5-3-4c0-2 1.5-3.5 3-3.5zM6 8c1.1 0 2 1.1 2 2.5S7.1 13 6 13s-2-1.1-2-2.5S4.9 8 6 8zM18 8c1.1 0 2 1.1 2 2.5s-.9 2.5-2 2.5-2-1.1-2-2.5.9-2.5 2-2.5zM9 4c1.1 0 2 1.1 2 2.5S10.1 9 9 9 7 7.9 7 6.5 7.9 4 9 4zM15 4c1.1 0 2 1.1 2 2.5S16.1 9 15 9s-2-1.1-2-2.5.9-2.5 2-2.5z" />
+     </svg>
+    </div>
+    <div class="absolute top-48 right-20 opacity-15 paw-animation paw-delay-1">
+     <svg class="w-16 h-16 text-[#FF8A65]" viewbox="0 0 24 24" fill="currentColor"><path d="M12 10.5c1.5 0 3 1.5 3 3.5 0 2.5-1.5 4-3 4s-3-1.5-3-4c0-2 1.5-3.5 3-3.5zM6 8c1.1 0 2 1.1 2 2.5S7.1 13 6 13s-2-1.1-2-2.5S4.9 8 6 8zM18 8c1.1 0 2 1.1 2 2.5s-.9 2.5-2 2.5-2-1.1-2-2.5.9-2.5 2-2.5zM9 4c1.1 0 2 1.1 2 2.5S10.1 9 9 9 7 7.9 7 6.5 7.9 4 9 4zM15 4c1.1 0 2 1.1 2 2.5S16.1 9 15 9s-2-1.1-2-2.5.9-2.5 2-2.5z" />
+     </svg>
+    </div>
+    <div class="absolute bottom-32 left-1/4 opacity-10 paw-animation paw-delay-2">
+     <svg class="w-20 h-20 text-[#5FA8A0]" viewbox="0 0 24 24" fill="currentColor"><path d="M12 10.5c1.5 0 3 1.5 3 3.5 0 2.5-1.5 4-3 4s-3-1.5-3-4c0-2 1.5-3.5 3-3.5zM6 8c1.1 0 2 1.1 2 2.5S7.1 13 6 13s-2-1.1-2-2.5S4.9 8 6 8zM18 8c1.1 0 2 1.1 2 2.5s-.9 2.5-2 2.5-2-1.1-2-2.5.9-2.5 2-2.5zM9 4c1.1 0 2 1.1 2 2.5S10.1 9 9 9 7 7.9 7 6.5 7.9 4 9 4zM15 4c1.1 0 2 1.1 2 2.5S16.1 9 15 9s-2-1.1-2-2.5.9-2.5 2-2.5z" />
+     </svg>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+     <div class="text-center md:text-left">
+      <div class="inline-flex items-center gap-2 bg-[#5FA8A0]/10 text-[#5FA8A0] px-4 py-2 rounded-full mb-6 font-medium"><span>🐾</span> <span>Paseos · Pet Sitting · Adiestramiento</span>
+      </div>
+      <h1 id="hero-title" class="font-montserrat font-extrabold text-5xl md:text-6xl lg:text-7xl text-[#2E2E2E] mb-6 leading-tight">Pet<span class="text-[#5FA8A0]">Way</span></h1>
+      <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-600 mb-8 font-light">El camino del bienestar animal</p>
+      <p class="text-gray-500 mb-10 max-w-md mx-auto md:mx-0">Acompañamos a tu mascota en cada paso, con cuidado, respeto y amor. Porque el bienestar de tu compañero es nuestra prioridad.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"><a href="#contacto" id="hero-cta" class="btn-primary bg-[#FF8A65] text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg inline-flex items-center justify-center gap-2"> <span>Contáctanos</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a> <a href="#servicios" class="border-2 border-[#5FA8A0] text-[#5FA8A0] px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-[#5FA8A0] hover:text-white transition-all inline-flex items-center justify-center"> Ver Servicios </a>
+      </div>
+     </div><!-- Hero Illustration -->
+     <div class="relative flex justify-center">
+      <div class="float-animation">
+       <svg class="w-full max-w-md" viewbox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Background circle --> <circle cx="200" cy="200" r="180" fill="#5FA8A0" fill-opacity="0.1" /> <circle cx="200" cy="200" r="140" fill="#5FA8A0" fill-opacity="0.1" /> <!-- Happy dog illustration --> <ellipse cx="200" cy="280" rx="80" ry="25" fill="#2E2E2E" fill-opacity="0.1" /> <!-- Dog body --> <ellipse cx="200" cy="220" rx="70" ry="55" fill="#F2EFEA" /> <ellipse cx="200" cy="220" rx="70" ry="55" stroke="#5FA8A0" stroke-width="3" /> <!-- Dog head --> <circle cx="200" cy="130" r="60" fill="#F2EFEA" /> <circle cx="200" cy="130" r="60" stroke="#5FA8A0" stroke-width="3" /> <!-- Ears --> <ellipse cx="145" cy="100" rx="25" ry="40" fill="#5FA8A0" transform="rotate(-20 145 100)" /> <ellipse cx="255" cy="100" rx="25" ry="40" fill="#5FA8A0" transform="rotate(20 255 100)" /> <!-- Eyes --> <circle cx="175" cy="120" r="12" fill="#2E2E2E" /> <circle cx="225" cy="120" r="12" fill="#2E2E2E" /> <circle cx="178" cy="117" r="4" fill="white" /> <circle cx="228" cy="117" r="4" fill="white" /> <!-- Nose --> <ellipse cx="200" cy="145" rx="12" ry="10" fill="#2E2E2E" /> <!-- Mouth/smile --> <path d="M185 160 Q200 175 215 160" stroke="#2E2E2E" stroke-width="3" stroke-linecap="round" fill="none" /> <!-- Tongue --> <ellipse cx="200" cy="170" rx="8" ry="12" fill="#FF8A65" /> <!-- Collar --> <rect x="160" y="180" width="80" height="12" rx="6" fill="#FF8A65" /> <circle cx="200" cy="192" r="8" fill="#FFD54F" /> <!-- Tail --> <path d="M270 200 Q320 180 290 130" stroke="#5FA8A0" stroke-width="8" stroke-linecap="round" fill="none" /> <!-- Legs --> <rect x="155" y="255" width="20" height="40" rx="10" fill="#F2EFEA" stroke="#5FA8A0" stroke-width="2" /> <rect x="225" y="255" width="20" height="40" rx="10" fill="#F2EFEA" stroke="#5FA8A0" stroke-width="2" /> <!-- Paw path --> <path d="M80 320 Q120 290 160 310 Q200 330 240 300 Q280 270 320 290" stroke="#FF8A65" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round" fill="none" /> <!-- Small paw prints --> <g transform="translate(90, 315) scale(0.4)">
+         <circle cx="10" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="25" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="0" cy="15" r="6" fill="#5FA8A0" />
+         <circle cx="35" cy="15" r="6" fill="#5FA8A0" />
+         <ellipse cx="17" cy="30" rx="12" ry="15" fill="#5FA8A0" />
+        </g> <g transform="translate(170, 330) scale(0.4)">
+         <circle cx="10" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="25" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="0" cy="15" r="6" fill="#5FA8A0" />
+         <circle cx="35" cy="15" r="6" fill="#5FA8A0" />
+         <ellipse cx="17" cy="30" rx="12" ry="15" fill="#5FA8A0" />
+        </g> <g transform="translate(260, 300) scale(0.4)">
+         <circle cx="10" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="25" cy="0" r="6" fill="#5FA8A0" />
+         <circle cx="0" cy="15" r="6" fill="#5FA8A0" />
+         <circle cx="35" cy="15" r="6" fill="#5FA8A0" />
+         <ellipse cx="17" cy="30" rx="12" ry="15" fill="#5FA8A0" />
+        </g>
+       </svg>
+      </div>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section id="servicios" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="text-[#FF8A65] font-semibold text-sm uppercase tracking-wider">Lo que hacemos</span>
+      <h2 id="services-title" class="font-montserrat font-bold text-4xl md:text-5xl text-[#2E2E2E] mt-3 mb-4">Nuestros Servicios</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Servicios profesionales diseñados para el bienestar integral de tu mascota</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Paseos Caninos -->
+      <div class="service-card bg-[#F2EFEA] rounded-3xl p-8 text-center cursor-pointer">
+       <div class="w-20 h-20 bg-[#5FA8A0] rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5 0-.83.67-1.5 1.5-1.5.83 0 1.5.67 1.5 1.5 0 .83-.67 1.5-1.5 1.5zm-5 0C8.67 10 8 9.33 8 8.5 8 7.67 8.67 7 9.5 7c.83 0 1.5.67 1.5 1.5 0 .83-.67 1.5-1.5 1.5zm7.5 3c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 2.76 2.24 5 5 5s5-2.24 5-5z" /> <path stroke-linecap="round" d="M4 19l3-3M20 19l-3-3" />
+        </svg>
+       </div>
+       <h3 class="font-montserrat font-bold text-xl text-[#2E2E2E] mb-3">Paseos Caninos</h3>
+       <p class="text-gray-500 leading-relaxed">Paseos diarios personalizados para mantener a tu mascota activa, feliz y saludable. Rutas seguras y diversión garantizada.</p>
+       <div class="mt-6 flex items-center justify-center gap-2 text-[#5FA8A0] font-semibold"><span>Saber más</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+       </div>
+      </div><!-- Pet Sitting -->
+      <div class="service-card bg-[#F2EFEA] rounded-3xl p-8 text-center cursor-pointer">
+       <div class="w-20 h-20 bg-[#FF8A65] rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+       </div>
+       <h3 class="font-montserrat font-bold text-xl text-[#2E2E2E] mb-3">Pet Sitting</h3>
+       <p class="text-gray-500 leading-relaxed">Cuidado en casa mientras estás fuera. Tu mascota estará segura y consentida con atención personalizada 24/7.</p>
+       <div class="mt-6 flex items-center justify-center gap-2 text-[#FF8A65] font-semibold"><span>Saber más</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+       </div>
+      </div><!-- Adiestramiento -->
+      <div class="service-card bg-[#F2EFEA] rounded-3xl p-8 text-center cursor-pointer">
+       <div class="w-20 h-20 bg-[#5FA8A0] rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+       </div>
+       <h3 class="font-montserrat font-bold text-xl text-[#2E2E2E] mb-3">Adiestramiento</h3>
+       <p class="text-gray-500 leading-relaxed">Educación positiva basada en refuerzo. Mejoramos la conducta de tu mascota con técnicas respetuosas y efectivas.</p>
+       <div class="mt-6 flex items-center justify-center gap-2 text-[#5FA8A0] font-semibold"><span>Saber más</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="nosotros" class="py-24 bg-gradient-to-br from-[#5FA8A0]/10 to-[#F2EFEA]">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div><span class="text-[#FF8A65] font-semibold text-sm uppercase tracking-wider">Conócenos</span>
+       <h2 id="about-title" class="font-montserrat font-bold text-4xl md:text-5xl text-[#2E2E2E] mt-3 mb-6">Sobre PetWay</h2>
+       <p class="text-gray-600 text-lg leading-relaxed mb-6">PetWay nace del amor por los animales y la convicción de que cada mascota merece un cuidado excepcional. Somos un equipo apasionado que entiende que tu compañero peludo es parte de tu familia.</p>
+       <p class="text-gray-500 leading-relaxed mb-8">Nuestra misión es simple: proporcionar servicios de la más alta calidad, combinando profesionalismo con un trato cercano y amoroso. Porque creemos que el bienestar animal es un camino que recorremos juntos.</p>
+       <div class="grid grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+         <div class="text-3xl font-montserrat font-bold text-[#5FA8A0]">
+          500+
+         </div>
+         <div class="text-gray-500 text-sm">
+          Mascotas felices
+         </div>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+         <div class="text-3xl font-montserrat font-bold text-[#FF8A65]">
+          5★
+         </div>
+         <div class="text-gray-500 text-sm">
+          Calificación promedio
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="absolute inset-0 bg-[#5FA8A0] rounded-3xl transform rotate-3"></div>
+       <div class="relative bg-white rounded-3xl p-8 shadow-xl">
+        <div class="grid grid-cols-2 gap-4">
+         <div class="bg-[#F2EFEA] rounded-2xl p-6 flex flex-col items-center"><span class="text-4xl mb-2">🐕</span> <span class="text-gray-600 font-medium text-center">Perros de todas las razas</span>
+         </div>
+         <div class="bg-[#F2EFEA] rounded-2xl p-6 flex flex-col items-center"><span class="text-4xl mb-2">🐈</span> <span class="text-gray-600 font-medium text-center">Gatos y felinos</span>
+         </div>
+         <div class="bg-[#F2EFEA] rounded-2xl p-6 flex flex-col items-center"><span class="text-4xl mb-2">❤️</span> <span class="text-gray-600 font-medium text-center">Atención personalizada</span>
+         </div>
+         <div class="bg-[#F2EFEA] rounded-2xl p-6 flex flex-col items-center"><span class="text-4xl mb-2">🏆</span> <span class="text-gray-600 font-medium text-center">Profesionales certificados</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Values Section -->
+   <section id="valores" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="text-[#FF8A65] font-semibold text-sm uppercase tracking-wider">Nuestros principios</span>
+      <h2 class="font-montserrat font-bold text-4xl md:text-5xl text-[#2E2E2E] mt-3 mb-4">Valores que nos guían</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div class="text-center p-6 rounded-2xl hover:bg-[#F2EFEA] transition-colors">
+       <div class="w-16 h-16 bg-[#5FA8A0]/10 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl">💚</span>
+       </div>
+       <h3 class="font-montserrat font-semibold text-[#2E2E2E] mb-2">Bienestar Animal</h3>
+       <p class="text-gray-500 text-sm">Priorizamos la salud y felicidad de cada mascota</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl hover:bg-[#F2EFEA] transition-colors">
+       <div class="w-16 h-16 bg-[#FF8A65]/10 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl">🤝</span>
+       </div>
+       <h3 class="font-montserrat font-semibold text-[#2E2E2E] mb-2">Responsabilidad</h3>
+       <p class="text-gray-500 text-sm">Compromiso total con cada familia</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl hover:bg-[#F2EFEA] transition-colors">
+       <div class="w-16 h-16 bg-[#5FA8A0]/10 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl">🙏</span>
+       </div>
+       <h3 class="font-montserrat font-semibold text-[#2E2E2E] mb-2">Respeto</h3>
+       <p class="text-gray-500 text-sm">Trato digno hacia todos los animales</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl hover:bg-[#F2EFEA] transition-colors">
+       <div class="w-16 h-16 bg-[#FF8A65]/10 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl">📚</span>
+       </div>
+       <h3 class="font-montserrat font-semibold text-[#2E2E2E] mb-2">Educación Positiva</h3>
+       <p class="text-gray-500 text-sm">Métodos basados en el refuerzo</p>
+      </div>
+      <div class="text-center p-6 rounded-2xl hover:bg-[#F2EFEA] transition-colors">
+       <div class="w-16 h-16 bg-[#5FA8A0]/10 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl">⭐</span>
+       </div>
+       <h3 class="font-montserrat font-semibold text-[#2E2E2E] mb-2">Compromiso</h3>
+       <p class="text-gray-500 text-sm">Dedicación en cada servicio</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section id="contacto" class="py-24 bg-[#2E2E2E] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+     <svg class="w-full h-full" viewbox="0 0 100 100" preserveaspectratio="none"><pattern id="pawPattern" patternunits="userSpaceOnUse" width="20" height="20">
+       <circle cx="5" cy="5" r="2" fill="white" />
+       <circle cx="10" cy="3" r="2" fill="white" />
+       <circle cx="3" cy="10" r="2" fill="white" />
+       <circle cx="12" cy="10" r="2" fill="white" />
+       <ellipse cx="7" cy="14" rx="3" ry="4" fill="white" />
+      </pattern> <rect width="100%" height="100%" fill="url(#pawPattern)" />
+     </svg>
+    </div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+     <h2 class="font-montserrat font-bold text-4xl md:text-5xl text-white mb-6">¿Listo para comenzar el camino?</h2>
+     <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">Contáctanos hoy y descubre cómo podemos ayudar a tu mascota a vivir más feliz y saludable.</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-primary bg-[#25D366] text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg inline-flex items-center justify-center gap-3">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+       </svg><span>WhatsApp</span> </a> <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-[#2E2E2E] transition-all inline-flex items-center justify-center gap-3">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+       </svg><span>Instagram</span> </a>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-[#2E2E2E] border-t border-gray-700 py-8">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+       <svg class="w-8 h-8" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 18C20 16.3431 21.3431 15 23 15C24.6569 15 26 16.3431 26 18C26 19.6569 24.6569 21 23 21C21.3431 21 20 19.6569 20 18Z" fill="#5FA8A0" /> <path d="M28 18C28 16.3431 29.3431 15 31 15C32.6569 15 34 16.3431 34 18C34 19.6569 32.6569 21 31 21C29.3431 21 28 19.6569 28 18Z" fill="#5FA8A0" /> <path d="M16 24C16 22.3431 17.3431 21 19 21C20.6569 21 22 22.3431 22 24C22 25.6569 20.6569 27 19 27C17.3431 27 16 25.6569 16 24Z" fill="#5FA8A0" /> <path d="M32 24C32 22.3431 33.3431 21 35 21C36.6569 21 38 22.3431 38 24C38 25.6569 36.6569 27 35 27C33.3431 27 32 25.6569 32 24Z" fill="#5FA8A0" /> <ellipse cx="27" cy="32" rx="8" ry="6" fill="#5FA8A0" />
+       </svg><span class="font-montserrat font-bold text-white">PetWay</span>
+      </div>
+      <p class="text-gray-400 text-sm">© 2024 PetWay. El camino del bienestar animal. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-4"><a href="#" class="text-gray-400 hover:text-[#5FA8A0] transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+        </svg></a> <a href="#" class="text-gray-400 hover:text-[#5FA8A0] transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+        </svg></a>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const Config = {
+      hero_title: 'PetWay',
+      hero_subtitle: 'El camino del bienestar animal',
+      services_title: 'Nuestros Servicios',
+      about_title: 'Sobre PetWay',
+      cta_button: 'Contáctanos',
+      background_color: '#F2EFEA',
+      primary_color: '#5FA8A0',
+      text_color: '#2E2E2E',
+      accent_color: '#FF8A65',
+      surface_color: '#FFFFFF'
+    };
+
+    let config = { ...defaultConfig };
+
+    async function onConfigChange(newConfig) {
+      config = { ...config, ...newConfig };
+      
+      // Update hero title
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle) {
+        const title = config.hero_title || defaultConfig.hero_title;
+        if (title.toLowerCase().includes('pet') && title.toLowerCase().includes('way')) {
+          heroTitle.innerHTML = title.replace(/(way)/i, '<span class="text-[#5FA8A0]">$1</span>');
+        } else {
+          heroTitle.textContent = title;
+        }
+      }
+      
+      // Update nav logo
+      const navLogo = document.getElementById('nav-logo');
+      if (navLogo) {
+        const title = config.hero_title || defaultConfig.hero_title;
+        if (title.toLowerCase().includes('pet') && title.toLowerCase().includes('way')) {
+          navLogo.innerHTML = 'Pet<span class="text-[#5FA8A0]">Way</span>';
+        } else {
+          navLogo.textContent = title;
+        }
+      }
+      
+      // Update hero subtitle
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) {
+        heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      }
+      
+      // Update services title
+      const servicesTitle = document.getElementById('services-title');
+      if (servicesTitle) {
+        servicesTitle.textContent = config.services_title || defaultConfig.services_title;
+      }
+      
+      // Update about title
+      const aboutTitle = document.getElementById('about-title');
+      if (aboutTitle) {
+        aboutTitle.textContent = config.about_title || defaultConfig.about_title;
+      }
+      
+      // Update CTA button
+      const heroCta = document.getElementById('hero-cta');
+      if (heroCta) {
+        heroCta.querySelector('span').textContent = config.cta_button || defaultConfig.cta_button;
+      }
+      
+      // Apply colors
+      document.body.style.setProperty('--bg-color', config.background_color || defaultConfig.background_color);
+      document.body.style.setProperty('--primary-color', config.primary_color || defaultConfig.primary_color);
+      document.body.style.setProperty('--text-color', config.text_color || defaultConfig.text_color);
+      document.body.style.setProperty('--accent-color', config.accent_color || defaultConfig.accent_color);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+        ['services_title', config.services_title || defaultConfig.services_title],
+        ['about_title', config.about_title || defaultConfig.about_title],
+        ['cta_button', config.cta_button || defaultConfig.cta_button]
+      ]);
+    }
+
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      // Simple toggle - in production you'd add a proper mobile menu
+      const nav = this.closest('nav');
+      const links = nav.querySelector('.hidden');
+      if (links) {
+        links.classList.toggle('hidden');
+        links.classList.toggle('flex');
+        links.classList.toggle('flex-col');
+        links.classList.toggle('absolute');
+        links.classList.toggle('top-full');
+        links.classList.toggle('left-0');
+        links.classList.toggle('right-0');
+        links.classList.toggle('bg-white');
+        links.classList.toggle('p-6');
+        links.classList.toggle('shadow-lg');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bb88bc173609c09',t:'MTc2ODAxMDA2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
