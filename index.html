@@ -1019,6 +1019,242 @@
       animation: float 4s ease-in-out infinite;
     }
     
+    /* Scroll reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    
+    .reveal-scale.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Floating paw prints */
+    @keyframes floatPaw {
+      0% {
+        transform: translateY(100%) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    .paw-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.3;
+      animation: floatPaw linear infinite;
+    }
+    
+    /* Wave animation for backgrounds */
+    @keyframes wave {
+      0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+      }
+      50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.8);
+      }
+      100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+      }
+    }
+    
+    .wave-background {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 100px;
+      background: linear-gradient(90deg, transparent, rgba(95, 168, 160, 0.1), transparent);
+      animation: wave 15s linear infinite;
+    }
+    
+    /* Shimmer effect for buttons */
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
+    }
+    
+    .btn--primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+      border-radius: 50px;
+    }
+    
+    .btn--accent::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+      border-radius: 50px;
+    }
+    
+    /* 3D card hover effect */
+    .service-card {
+      transform-style: preserve-3d;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-15px) rotateX(5deg);
+    }
+    
+    .service-card__icon {
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    .service-card:hover .service-card__icon {
+      transform: translateZ(30px) scale(1.1) rotate(5deg);
+    }
+    
+    /* Gradient text animation */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    
+    .hero__title-highlight {
+      background: linear-gradient(45deg, #5FA8A0, #7fc4bc, #FF8A65, #5FA8A0);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 5s ease infinite;
+    }
+    
+    /* Pulse animation for badges */
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(95, 168, 160, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(95, 168, 160, 0);
+      }
+    }
+    
+    .hero__badge {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Bounce animation for scroll indicator */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    /* Glowing effect */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(95, 168, 160, 0.3), 0 0 40px rgba(95, 168, 160, 0.1);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(95, 168, 160, 0.5), 0 0 60px rgba(95, 168, 160, 0.2);
+      }
+    }
+    
+    .header__logo-icon:hover {
+      animation: glow 2s infinite;
+    }
+    
+    /* Stagger delay for service cards */
+    .service-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    
+    .service-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .service-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    
     /* Splash Screen */
     .splash-screen {
       position: fixed;
@@ -1108,12 +1344,12 @@
   </section><!-- Services Section -->
   <section class="services page__section" id="servicios">
    <div class="services__container">
-    <div class="services__header">
+    <div class="services__header reveal">
      <h2 class="services__title" id="servicesTitle">Nuestros Servicios</h2>
      <p class="services__subtitle">Cuidamos de tu mascota con profesionalismo y mucho amor</p>
     </div>
     <div class="services__grid"><!-- Paseos -->
-     <div class="service-card">
+     <div class="service-card reveal-scale">
       <div class="service-card__icon">
        <svg viewbox="0 0 50 50" fill="none"><path d="M10 35 L25 20 L40 35" stroke="#5FA8A0" stroke-width="3" stroke-linecap="round" /> <circle cx="25" cy="15" r="8" fill="#5FA8A0" /> <path d="M15 40 Q25 45 35 40" stroke="#FF8A65" stroke-width="2" stroke-linecap="round" />
        </svg>
@@ -1123,7 +1359,7 @@
       <div class="service-card__features"><span class="service-card__feature">Individual</span> <span class="service-card__feature">Grupal</span> <span class="service-card__feature">GPS</span>
       </div>
      </div><!-- Pet Sitting -->
-     <div class="service-card">
+     <div class="service-card reveal-scale">
       <div class="service-card__icon">
        <svg viewbox="0 0 50 50" fill="none"><rect x="10" y="20" width="30" height="20" rx="3" fill="#5FA8A0" /> <path d="M10 25 L25 15 L40 25" fill="#5FA8A0" /> <circle cx="25" cy="32" r="5" fill="#FF8A65" /> <rect x="22" y="37" width="6" height="8" fill="#5FA8A0" />
        </svg>
@@ -1133,7 +1369,7 @@
       <div class="service-card__features"><span class="service-card__feature">Por horas</span> <span class="service-card__feature">Día completo</span> <span class="service-card__feature">Noches</span>
       </div>
      </div><!-- Adiestramiento -->
-     <div class="service-card">
+     <div class="service-card reveal-scale">
       <div class="service-card__icon">
        <svg viewbox="0 0 50 50" fill="none"><circle cx="25" cy="20" r="12" fill="#5FA8A0" /> <path d="M20 18 L23 22 L30 15" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /> <rect x="18" y="35" width="14" height="8" rx="2" fill="#FF8A65" /> <rect x="22" y="32" width="6" height="3" fill="#5FA8A0" />
        </svg>
@@ -1148,7 +1384,7 @@
   </section><!-- About Section -->
   <section class="about page__section" id="nosotros">
    <div class="about__container">
-    <div class="about__visual">
+    <div class="about__visual reveal-left">
      <div class="about__image-container">
       <div class="about__image-bg"></div>
       <div class="about__image-front">
@@ -1157,7 +1393,7 @@
       </div>
      </div>
     </div>
-    <div class="about__content">
+    <div class="about__content reveal-right">
      <h2 class="about__title" id="aboutTitle">Sobre PetWay</h2>
      <p class="about__text">En PetWay creemos que cada mascota merece atención de calidad, respeto y mucho amor. Nuestro equipo está formado por profesionales apasionados por el bienestar animal, comprometidos con brindar el mejor cuidado a tu compañero peludo.</p>
      <p class="about__text">No somos solo un servicio, somos el camino de bienestar para tu mascota. Cada paso que damos está guiado por nuestros valores fundamentales.</p>
@@ -1192,16 +1428,16 @@
   </section><!-- Gallery Section -->
   <section class="gallery page__section" id="galeria">
    <div class="gallery__container">
-    <div class="gallery__header">
+    <div class="gallery__header reveal">
      <h2 class="gallery__title" id="galleryTitle">Galería</h2>
      <p class="gallery__subtitle">Momentos especiales con nuestros amigos peludos</p>
     </div>
-    <div class="carousel"><!-- Paseos Section -->
+    <div class="carousel reveal-scale"><!-- Paseos Section -->
      <div class="carousel__section">
       <h3 class="carousel__section-title">🦮 Paseos Caninos</h3>
       <div class="carousel__track-container">
        <div class="carousel__track" id="paseosTrack">
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&amp;q=80" alt="Golden retriever en el parque" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.55.53 AM.jpeg" alt="Golden retriever en el parque" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Paseo en el parque 🌳</span>
          </div>
         </div>
@@ -1239,27 +1475,27 @@
       <h3 class="carousel__section-title">🎓 Adiestramiento</h3>
       <div class="carousel__track-container">
        <div class="carousel__track" id="adiestramientoTrack">
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&amp;q=80" alt="Pastor alemán en adiestramiento" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.51.44 AM.jpeg" alt="Pastor alemán en adiestramiento" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Sesión de entrenamiento 🎓</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&amp;q=80" alt="Border collie jugando" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.51.00 AM.jpeg" alt="Border collie jugando" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Juego educativo 🎾</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?w=600&amp;q=80" alt="Husky en la naturaleza" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.51.00 AM (3).jpeg" alt="Husky en la naturaleza" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Aventura educativa 🏞️</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=600&amp;q=80" alt="Entrenamiento de obediencia" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.51.00 AM (2).jpeg" alt="Entrenamiento de obediencia" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Práctica de comandos 👏</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1444212477490-ca407925329e?w=600&amp;q=80" alt="Cachorro aprendiendo" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.51.00 AM (1).jpeg" alt="Cachorro aprendiendo" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Entrenamiento temprano 🐕</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=600&amp;q=80" alt="Perro concentrado" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.50.59 AM.jpeg" alt="Perro concentrado" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Enfoque total 🎯</span>
          </div>
         </div>
@@ -1277,27 +1513,27 @@
       <h3 class="carousel__section-title">🏠 Pet Sitting</h3>
       <div class="carousel__track-container">
        <div class="carousel__track" id="petsittingTrack">
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=600&amp;q=80" alt="Labrador en pet sitting" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="woman-walking-three-dogs.webp" alt="Labrador en pet sitting" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Cuidado en casa 🏠</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=600&amp;q=80" alt="Beagle descansando" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.50.10 AM.jpeg" alt="Beagle descansando" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Descanso y confort 😴</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&amp;q=80" alt="Perro feliz y cuidado" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.50.11 AM.jpeg" alt="Perro feliz y cuidado" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Felicidad garantizada 💚</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&amp;q=80" alt="Perro jugando en casa" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.50.22 AM.jpeg" alt="Perro jugando en casa" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Juego en casa 🎮</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&amp;q=80" alt="Mascota descansando" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.50.23 AM.jpeg" alt="Mascota descansando" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Sueño tranquilo 💤</span>
          </div>
         </div>
-        <div class="carousel__slide"><img src="https://images.unsplash.com/photo-1583512603806-077998240c7a?w=600&amp;q=80" alt="Cuidado amoroso" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
+        <div class="carousel__slide"><img src="WhatsApp Image 2026-01-24 at 11.50.24 AM.jpeg" alt="Cuidado amoroso" class="carousel__image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Imagen no disponible';">
          <div class="carousel__overlay"><span class="carousel__caption">Con mucho amor ❤️</span>
          </div>
         </div>
@@ -1478,6 +1714,48 @@
     window.addEventListener('resize', () => {
       Object.keys(carousels).forEach(name => updateCarousel(name));
     });
+    
+    // Scroll reveal animations
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+      
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    
+    // Create floating paw particles
+    function createPawParticle() {
+      const paw = document.createElement('div');
+      paw.className = 'paw-particle';
+      paw.style.left = Math.random() * 100 + '%';
+      paw.style.fontSize = (Math.random() * 20 + 15) + 'px';
+      paw.innerHTML = '🐾';
+      paw.style.animationDuration = (Math.random() * 10 + 15) + 's';
+      paw.style.animationDelay = Math.random() * 5 + 's';
+      
+      document.body.appendChild(paw);
+      
+      setTimeout(() => {
+        paw.remove();
+      }, (parseFloat(paw.style.animationDuration) + parseFloat(paw.style.animationDelay)) * 1000);
+    }
+    
+    // Create particles periodically
+    setInterval(createPawParticle, 3000);
+    
+    // Create initial particles
+    for (let i = 0; i < 5; i++) {
+      setTimeout(createPawParticle, i * 600);
+    }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c303d4ab4347e94',t:'MTc2OTI2NTEzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c304bd5c1e27e94',t:'MTc2OTI2NTczNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
